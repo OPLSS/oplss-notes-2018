@@ -1,3 +1,3 @@
-# I structured the note by lecture days.
+# I structure my note by lecture days.
 
 
