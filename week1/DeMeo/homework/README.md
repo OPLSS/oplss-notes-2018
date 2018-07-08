@@ -72,3 +72,33 @@ Recall the Progress/Preservation Theorem stated in Lecture 2.
    **Corollary.** (∀ e e') (∀ τ) (e[τ/α] ↦ e'[τ/α] if and only if e ↦ e' ).
 
    Why does this corollary imply---from the fact that running closed expressions (with no free variables and no free type variables)---that it's okay (i.e., type safe) to run an expression even if it has free type variables?
+
+---
+
+### Lectures 6, 7, 8 (Downen)
+
+
+#### Linear logic and lambda calculus
+
+1. **Additive versus multiplicative** For each of the following pair of statements using linear conjunctions and disjunctions, determine which ones are provable and which ones are not provable. What is preventing you from proving one of the statements? Does using the “Mix” rule help in some cases?
+
+   (τ -||- τ') means to give a proof derivation of BOTH τ ⊢ τ' and τ ⊣ τ'.
+
+   + **a)** τ -||- τ & τ   versus    τ -||- τ ⊗ τ
+
+   + **b)** τ, τ -||- τ & τ    versus    τ, τ -||- τ ⊗ τ
+
+   + **c)** τ ⊕ τ -||- τ    versus    τ ⅋ τ -||- τ
+
+   + **d)** τ ⊕ τ -||- τ, τ    versus   τ ⅋ τ -||- τ, τ
+
+2. **Copy and delete** Not every value can be copied and deleted in the linear lambda calculus, but some can. These types of values are described by the following subset of types:
+
+   P ::= 0 | 1 | !τ | P₁ ⊗ P₂ | P₁ ⊕ P₂
+
+    Write the following copy and delete function for each such type P. (The function definition will be different for each type.)
+
+   delete{P} : P ⊸ 1  
+   copy{P} : P ⊸ P ⊗ P
+
+   *Hint* since the the definition of delete{P} and copy{P} is different for each P, try defining them by induction on the definition of P above. The base cases are for 0, 1, and !tau, whereas the definitions of P₁ ⊗ P₂ and P₁ ⊕ P₂ will depend on the definitions of P₁ and P₂.
