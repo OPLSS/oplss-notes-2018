@@ -1,8 +1,10 @@
+import Data.List
+
 type Node = Int
 type Edge = (Node, Node)
 type Graph = [Edge] 
 
-data Matrix = Matrix [[Node]]
+data Matrix a = Matrix [[a]]
 --showMatrix :: Matrix -> String
 --showMatrix = unlines . map show {-
 --instance Show (Matrix mss) => showMatrix mss -}
@@ -100,7 +102,22 @@ isIrreflexive [[]] = True
 isIrreflexive [[x]] = if x == 0 then True else False
 isIrreflexive ((x:xs):yss) = if x /= 0 then False else isIrreflexive l
   where l = (map tail yss)
+-- this is quadratic.
 
-isLowerTriangle :: [[a]] -> Bool
--- all entries below diagonal is zero. 
-isLowerTriangle ls = True
+-- all entries below diagonal is zero.
+allZeroUpToNth :: (Num a, Eq a) => a -> ([a] -> Bool)
+allZeroUpToNth _ [] = True
+allZeroUpToNth 0 _  = True
+allZeroUpToNth n (x:xs) = if x==0 then allZeroUpToNth (n-1) xs else False
+isLowerTriangle :: (Num a, Eq a) => [[Int]] -> Bool
+isLowerTriangle lss = and (map and [map (allZeroUpToNth k) lss | k <- [0..n]]) where n = length lss
+
+mtrxTransposed :: [[a]] -> [[a]]
+mtrxTransposed m = transpose m
+
+isSymmetric :: Eq a => [[a]] -> Bool
+isSymmetric m = m == (transpose m)
+--symmetric matrices are undirected graphs.
+
+isDAG :: (Num a, Eq a) => [[a]] -> Bool
+isDAG m = (not . isSymmetric) m && isIrreflexive m
