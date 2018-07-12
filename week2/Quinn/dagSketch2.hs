@@ -65,12 +65,11 @@ addEdge e es = e : es
 -- incidence matrix
 mptMtrx :: [Node] -> [[Node]]
 mptMtrx ns = take n (repeat [0 | _<-ns]) where n = length ns
---mptMtrx = \ns -> take (length ns) (repeat ([a | a <- ns] ++ "\n"))
-{-mtrxPrint :: [[Node]] -> IO ()
-mtrxPrint [] = putStrLn ""
-mtrxPrint (l:ls) = do
-  putStrLn (map show l)
-  mtrxPrint ls
+{-
+isTail :: Node -> Edge -> Bool
+isTail n = \e -> n == fst e
+tailsN :: Node -> Graph -> [Node]
+tailsN n g = filter (isTail n) gr
 -}
 incidenceMatrix :: Graph -> [[Node]]
 incidenceMatrix [] = [[]]
@@ -78,3 +77,30 @@ incidenceMatrix es = [[1]]
 
 prMtrx :: Graph -> IO () -- just shows us the background empty matrix rn. 
 prMtrx = putStr . unlines . map show . mptMtrx . getNodes
+
+
+isSquare :: [[a]] -> Bool
+isSquare (l:ls) = and ((length (l:ls) == length l) : [length l == length k | k <- ls])
+
+tail' :: [a] -> [a]
+tail' [] = []
+tail' (x:xs) = xs
+
+{-
+*Main> isIrreflexive [[1,2,3],[4,5,6],[7,8,9]]
+False
+*Main> isIrreflexive [[0,2,3],[4,0,6],[7,8,0]]
+True
+-}
+
+isIrreflexive :: (Num a, Eq a) => [[a]] -> Bool
+-- all zeros in diagonal
+isIrreflexive [] = True
+isIrreflexive [[]] = True
+isIrreflexive [[x]] = if x == 0 then True else False
+isIrreflexive ((x:xs):yss) = if x /= 0 then False else isIrreflexive l
+  where l = (map tail yss)
+
+isLowerTriangle :: [[a]] -> Bool
+-- all entries below diagonal is zero. 
+isLowerTriangle ls = True
