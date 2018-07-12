@@ -27,3 +27,18 @@ Assume the two input trees to `myfunc` are balanced and the integer values are
 
 (You can assume the two trees have equal size and the split function splits 
 the tree in half.)
+
+
+## Exercise from Umut
+implement! 
+flatten A : (alpha Seq) Seq -> alpha Seq
+expensive suggestion: "flatten A = reduce () append A"
+which is, where r is the length of result and a is the length of outer input list
+- wk(flatten A)=O(r*lg(a)) 
+- sp(flatten A)=O(lg(a)) 
+
+your goal: 
+-- implement a version in linear work, with the same span. 
+so make flatten' such that 
+- wk(flatten' A) = O(a)
+- wk(flatten' A) = O(lg(a))

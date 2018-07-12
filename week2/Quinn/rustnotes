@@ -1,0 +1,30 @@
+c++ 
+
+everything is pointers
+
+determinstic destructors -- when you're done things are deallocated
+
+no garbage collection -- we want to keep this in rust. 
+
+--bad things about c++
+dangling pointer - pointer to freed memory - doesn't know about what happens behind it.
+
+aliasing-- multiple pointers to the same thing. 
+
+
+garbage collection:
+no control 
+requires a runtime. 
+insufficient to prevent related problems: iterator invalidation, data racing. 
+-- this would slow down a browser
+
+affine type system (ownership) (like linear but you're allowed to squanderd. 
+--- region based borrowing (w uniqueness) 
+-- - c++ style destructors, smart pointers. 
+
+traits (typeclasses)
+--- with both static and dynamic dispatch 
+--- user-defined "kinds" 
+
+usual goodies -- type inference, adts, pattern matching, closures, iterators. 
+
