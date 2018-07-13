@@ -1,0 +1,117 @@
+parallel programming in higher level languages
+
+abstraction means the compiler has more information
+-- controlled side effects, no user-level pointers..
+collection oriented vs. explicit loops/recursion
+
+DSLs don't need to be turing complete. 
+-- html, matlab, sql, latex
+Embedded DSLs are like libraries in a host language, integrable.
+- reuse syntax of host language. 
+
+Accelerate is an embedded dsl for high-oerformance computing in haskell
+
+EMBEDDING: 
+there are two ways to embed a language: 
+-- shallow (just the basic idea of library)
+-- deep 
+
+shallow: shallow embedding provides fixed interpretation. 
+
+--- 
+----
+---
+
+in Data.Array.Accelerate: 
+
+dotproduct
+dotp :: (Num a, Elt a) => Acc (Vector a) -> Acc (Vector a) -> Acc (Scalar a)
+dotp xs ys = fold (+) 0 (zipWith (*) xs ys)
+
+-- the Acc constructor means we're passing ASTs, not "vals" exactly. Which means the result will be an AST, not a val. 
+
+zipWith :: (Elt a, Elt b, Elt c) => (Exp a -> Exp b -> Exp c) -> Acc (Vector a) -> Acc (Vector b) -> Acc (Vector c) 
+
+-- each Acc ast is parallelizable
+
+-- map, for instance, takes a sequentail computation as argument and returns a parallel computation 
+
+fold :: Elt a => (Expr a -> Exp a -> Exp a) -> Exp a -> Acc (Vector a) -> ... 
+
+-- 
+
+detour - typeclasses in haskell
+
+foo' :: NumDict a -> a -> a
+foo' dict x = (getAdd dict)((getMult dict) x x ) x
+
+read "[1,2,3,4]" :: [Int]
+
+---- Back to dotproduct in Accleerate
+
+vec1, vec2 :: Acc (Vecor Float)
+vec1 = _ 
+vec2 = _ 
+
+accPrg :: Acc (Scalar Float)
+accPrg = dotp vec1 vec2
+
+run :: Arrays a => Acc a -> a
+
+
+-- 
+Accelerate Expressions: 
+
+embededded sequentail, scalar expressions
+
+arrays: parallel. 
+
+
+
+
+
+-- nested parallel computations almost can't be expressed
+mapp :: (Elt a, Elt b) => (Exp a -> Exp b 
+
+
+Exp is a GADT whose constructors represent scalar operations
+
+data Exp a where
+     Const :: Elt c => c -> c
+
+     PrimApp :: (Elt a, Elt r) => PrimFun (a->r) -> Exp a -> Exp r
+ --- -- prim app is application of primitve functions. 
+
+in Accelerate, Exp needs adhoc polymorphism. 
+Overloaded the standard typeclasses to reflect arithmetic expressions
+The num instance for Exp terms allows us to reuse standard operators like + and * 
+
+so in Accelerate, 
+
+Acc and Exp are the two argument types, 
+Vector and Array are the two Vector types.
+
+Array is parametrized w the shape type sh and the element type a. 
+
+:. is the pair type, infix. 
+
+data Z = Z 
+data head :. tail = head :. tail
+
+type DIM0 = Z
+type DIM1 = DIM0 :. Int
+type DIM2 = DIM1 :. Int
+
+type Scalar a = Array DIM0 a
+type Vector a = Array DIM1 a
+
+-- operations are shape-polymorphic
+map :: (Shape sh, Elt a, Elt b) => (Exp a -> Exp b) -> Acc (Array sh b) -> Acc (Array sh c)
+
+
+fold :: (Shape sh, Elt a) => (Exp a -> Exp a -> Exp a) -> Exp a -> jfkldajf
+
+generate :: (Shape sh, Elt a) => Exp sh -> (Exp sh -> Exp a) -> Acc (Array sh a)
+
+so...
+dotp is ALSO polymorphic!! 

@@ -1,4 +1,4 @@
-greedy scheduling can be messy, low level, unwieldy concurrency; BUT truthful if you comile it from a higher-level language (w parallel- rather than concurrent- semantics. 
+greedy scheduling can be messy, low level, unwieldy concurrency; BUT truthful if you compile it from a higher-level language (w parallel- rather than concurrent- semantics. 
 
 tabulate is "interpret a set as a bijection from int, which is array"
 
