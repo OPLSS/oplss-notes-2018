@@ -1,0 +1,12 @@
+greedy scheduling can be messy, low level, unwieldy concurrency; BUT truthful if you compile it from a higher-level language (w parallel- rather than concurrent- semantics. 
+
+tabulate is "interpret a set as a bijection from int, which is array"
+
+iterate is like foldl in haskell
+
+reduce is a contraction. each recursive call takes one step w a binary operation. its like fold w/o right or left preference, trying to assoc things which are next to eachother. 
+
+___________
+
+remark-- linear type systems don't parallel! 
+

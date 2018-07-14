@@ -1,0 +1,31 @@
+call by name just means you can pass _trees_ through application or transition steps, instead of "only passing" "values"
+
+"val" is understood by dividing states into terminating and nonterminating. it is fine to say "every state is terminating", if you must.
+
+-- ifthenelse is an elim rule for Bool!
+-- - in linear systems, this corresponds to "consume resource". 
+
+there is no unit elim nor is there void intro. 
+
+------------------
+
+CS: "types are a proxy for behavior"
+logic: "______ are a proxy for propositions" (missed this) 
+
+"type erasure" from system f is like compiling to untyped LC. untyped LC is the //assembly language// of system f. 
+
+
+
+---------------
+
+
+in linear logic: 
+
+resources on left are things you are given 
+resources on right are obligatoins. 
+
+
+linear lambda calculus just means that type safety IS resource safety. 
+
+
+
