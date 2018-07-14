@@ -1,0 +1,4 @@
+Elt class -- the elementary types. 
+
+GPUs are god for arays of elementary types, not for other types. 
+
