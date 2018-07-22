@@ -1,6 +1,8 @@
 ## Bob Harper -- Carnegie Mellon University
 
 + [Bob's website](http://www.cs.cmu.edu/~rwh/)
++ [CMU course on chtt](http://www.cs.cmu.edu/~rwh/courses/chtt/)
++ [CMU course on hott](http://www.cs.cmu.edu/~rwh/courses/hott/)
 
 
 ### Computational Type Theory
