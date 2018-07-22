@@ -20,3 +20,13 @@ The repository is at https://github.com/OPLSS/introduction-to-algebraic-effects-
 ### Recorded Lectures
 
 + [Link to OPLSS site](https://www.cs.uoregon.edu/research/summerschool/summer18/topics.php#Bauer) for videos and other information, links, and resources.
+
+### Info/Materials from Slack
+
+Andrej posted the following comment on Monday, July 16:
+
+If you're going to read anything ahead of time, it would be:
+1. https://arxiv.org/abs/1807.05923 (theory background)
+2. http://www.eff-lang.org/handlers-tutorial.pdf (tutorial, PL-design oriented)
+3. https://arxiv.org/abs/1306.6316 (more realistic treatment, with types etc.)
+4. https://github.com/yallop/effects-bibliography (if you don't sleep or eat) (edited)
