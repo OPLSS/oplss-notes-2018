@@ -4,10 +4,6 @@
 
 ### Algebraic Effects and Handlers
 
-Recorded lectures are available from the [OPLSS 2018 page](https://www.cs.uoregon.edu/research/summerschool/summer18/topics.php#Bauer).
-
-+ [OPLSS 2018 page](https://www.cs.uoregon.edu/research/summerschool/summer18/topics.php#Bauer)
-+ [OPLSS github repo](https://github.com/OPLSS/introduction-to-algebraic-effects-and-handlers)
 + [Effects bibliography](https://github.com/yallop/effects-bibliography)
 + [Effects Rosetta Stone](https://github.com/effect-handlers/effects-rosetta-stone)
 + [Programming language Eff](http://www.eff-lang.org/)
@@ -20,3 +16,7 @@ There are many possible ways and choices of designing a programming language aro
 Andrej also created a [github repo](https://github.com/OPLSS/introduction-to-algebraic-effects-and-handlers) that contains many more resources related to his lectures.
 
 The repository is at https://github.com/OPLSS/introduction-to-algebraic-effects-and-handlers
+
+### Recorded Lectures
+
++ [Link to OPLSS site](https://www.cs.uoregon.edu/research/summerschool/summer18/topics.php#Bauer) for videos and other information, links, and resources.
